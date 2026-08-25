@@ -1,0 +1,14 @@
+version: 2
+updates:
+  # The workflow pins a toolchain and three actions, which go stale silently.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+
+  # Only affects the lockfile, and in practice only the dev-dependencies: the
+  # library's own two are ranges a user resolves themselves.
+  - package-ecosystem: cargo
+    directory: /
+    schedule:
+      interval: monthly
