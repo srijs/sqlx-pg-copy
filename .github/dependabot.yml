@@ -1,10 +1,16 @@
 version: 2
 updates:
-  # The workflow pins a toolchain and three actions, which go stale silently.
+  # The workflow pins three actions, which go stale silently.
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: monthly
+    ignore:
+      # The msrv job's pin is the MSRV from Cargo.toml, not a stale version; it
+      # moves only when rust-version does. Dependabot also resolves this action
+      # against branches, which exist as soon as a version lands in nightly —
+      # two releases ahead of what rustup can install.
+      - dependency-name: dtolnay/rust-toolchain
 
   # Only affects the lockfile, and in practice only the dev-dependencies: the
   # library's own two are ranges a user resolves themselves.
