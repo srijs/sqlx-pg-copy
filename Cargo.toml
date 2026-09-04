@@ -1,8 +1,8 @@
 [package]
 name = "sqlx-pg-copy"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
-rust-version = "1.85"
+rust-version = "1.94"
 description = "Binary COPY ... FROM STDIN encoder for sqlx's Postgres driver"
 repository = "https://github.com/srijs/sqlx-pg-copy"
 license = "MIT OR Apache-2.0"
@@ -12,14 +12,14 @@ categories = ["database"]
 exclude = [".github/"]
 
 [dependencies]
-sqlx = { version = "0.8", default-features = false, features = ["postgres"] }
+sqlx = { version = "0.9", default-features = false, features = ["postgres"] }
 thiserror = "2"
 
 [dev-dependencies]
 anyhow = "1"
 criterion = { version = "0.8", features = ["async_tokio"] }
 proptest = "1"
-sqlx = { version = "0.8", default-features = false, features = [
+sqlx = { version = "0.9", default-features = false, features = [
     "postgres",
     "runtime-tokio",
 ] }
